@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}POST{% endblock %}
+
+{% block body %}
+{{parent()}}
+<div class="container my-3">
+<div class="navigation">
+    {{ knp_pagination_render(pagination) }}
+</div>
+   <div class="row">
+
+            {% for index, post in pagination %}
+                    <div class="col-md-4" {%  if app.user %}onclick=" window.location.href='{{path('app_viewpost',{'id':post.id} )}}'"{% endif %}>
+                    
+                        <div class="border rounder p-3">
+                                                   
+                            <img src=" {{ asset('uploads/post/' ~ post.imagename) }}" width="100%" alt="">
+                            
+                            <br>
+                            <strong>Autor:</strong>{{post.user.username}}
+                            <hr>
+
+                            <strong>Comentario:</strong>{{post.postcontent}}
+                        </div>
+                    </div>
+          {% endfor %}               
+   </div>
+</div>
+{% endblock %}

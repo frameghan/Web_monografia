@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/in_up.css') }}">
+     
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+
+{% endblock %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+
+ {{ form_errors(registrationForm) }}
+
+
+{{ form_start(registrationForm) }}
+           <div class="container">
+           <div class="d-flex justify-content-center align-items-center min-vh-100">
+                  <div class="card bg-dark text-white">
+                    <div class="card-header">
+                        <h3>Sign Up</h3>
+                    </div>
+                           
+                      <div class="card-body">
+
+
+                         <div class="input-group mb-3">
+
+                           <div>
+                              <span class="input-group-text"><i class="fas fa-user"></i></span>       
+                           </div>
+
+
+                           <div  class="flex-grow-1" style="float: left;">
+                              {{ form_row(registrationForm.username,{ 
+                                 'label': false,        'attr': {
+                                'placeholder': 'Usuario',
+                                class:'form-control',
+                                
+                                 'required': 'autofocus'
+                               }}) }}   
+
+                           </div>    
+                          </div>
+
+                         <div class="input-group mb-3">
+                                    <div  class="flex-grow-0 flex-shrink-0" >
+                                       <span class="input-group-text"style="height:38px;"><i class="fas fa-key"></i></span>
+                                    </div>
+                                      
+                                    <div  class="flex-grow-1" style="float: left;">
+                                       {{ form_row(registrationForm.plainPassword, {
+                                          'label': false,
+                                          'attr':{'placeholder':'contraseña',
+                                                      
+                                          }
+                                           }) }}
+                                    </div>
+
+                                    
+                                 
+                                   
+
+
+                          </div>
+
+                       <div class="input-group mb-3">
+                          {{ form_row(registrationForm.agreeTerms,{ 'label': "acepto los terminos",}) }}
+                       </div>
+
+                       <button type="submit" class="btn btn-warning w-100">Registrar</button>
+                        <div class="d-flex justify-content-center links">
+                       <a href="{{ path('app_login') }}">Ya tengo una cuenta?</a>
+                         </div>
+                        
+                        
+                                
+          
+          
+ {{ form_end(registrationForm) }} 
+
+
+{% endblock %}

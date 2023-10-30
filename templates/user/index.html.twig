@@ -1,0 +1,48 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User index{% endblock %}
+
+{% block body %}
+   
+{{parent()}}
+
+<div class="container">
+<br>
+    <h1>Lista de usuarios</h1>
+<hr>
+    <table  class="table table-sm table-dark">
+        <thead>
+            <tr>
+                <!-- <th>Id</th> -->
+                <th>Username</th>
+                <th>Roles</th>
+                <!-- <th>Password</th> -->
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user in users %}
+            <tr>
+               <!--  <td>{{ user.id }}</td> -->
+                <td>{{ user.username }}</td>
+                <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
+                <!-- <td>{{ user.password }}</td> -->
+                <td>
+                    <a href="{{ path('app_user_show', {'id': user.id}) }}" class="btn btn-secondary" >show</a>
+                    <a href="{{ path('app_user_edit', {'id': user.id}) }}" class="btn btn-light">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+<hr>
+    <a href="{{ path('app_user_new') }}" class="btn btn-dark">Crear un Nuevo Usuario</a>  &nbsp; <a href="{{ path('app_genepdf') }}" class="btn btn-dark"     target="_blanck"   >Descargar</a>
+
+
+</div>
+
+{% endblock %}

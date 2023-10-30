@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}NUEVO POST{% endblock %}
+
+{% block body %}
+{{parent()}}
+<div class="container">
+
+        <hr>
+   {{form(form)}}
+</div>
+{% endblock %}

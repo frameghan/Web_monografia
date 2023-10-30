@@ -1,0 +1,12 @@
+.icon-container {
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px; /* Espaciado opcional entre el icono y el texto */
+  }
+  
+  .icon-img {
+    width: 40px; /* Ajusta el tamaño de la imagen según tus necesidades */
+    height: 40px;
+    border-radius: 50%; /* Hace que la imagen sea circular */
+  }
+  

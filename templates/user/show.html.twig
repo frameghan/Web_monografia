@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User{% endblock %}
+
+{% block body %}
+
+{{parent()}}
+ <div class="container">
+    <h1>Administra Usuario</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th class="table-secondary">Id</th>
+                <td class="table-secondary">{{ user.id }}</td>
+            </tr>
+            <tr>
+                <th>Username</th>
+                <td>{{ user.username }}</td>
+            </tr>
+            <tr>
+                <th class="table-secondary">Roles</th>
+                <td class="table-secondary">{{ user.roles ? user.roles|json_encode : '' }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ user.password }}</td>
+            </tr>
+        </tbody>
+    </table>
+<hr>
+    <a href="{{ path('app_user_index') }}" class="btn btn-dark" >atras</a>
+
+    <a href="{{ path('app_user_edit', {'id': user.id}) }}"  class="btn btn-secondary">editar</a>
+    <br>
+<hr>
+    {{ include('user/_delete_form.html.twig') }}
+
+ </div>
+   
+{% endblock %}

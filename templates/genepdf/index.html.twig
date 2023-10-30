@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello GenepdfController!{% endblock %}
+
+{% block body %}
+<div class="row">
+    <h1 class="display-3">Post</h1>    
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <td>#</td>
+                <td>Imagen</td>
+                <td>Contenido</td>
+            </tr>
+
+            {% for index, post in posts %}
+                <tr>
+                    <td>{{ index+1 }}</td>
+                    <td>
+                        <img src="{{ 'uploads/pdf_images/' ~ post.imagename }}" width="100%" alt="">
+                    </td>
+                    <td>{{ post.postcontent }}</td>
+                </tr>
+            {% endfor %}   
+        </table>
+    </div>
+</div>
+{% endblock %}
